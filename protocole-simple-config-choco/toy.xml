@@ -1,0 +1,45 @@
+<instance>
+ <presentation format="XCSP 2.1" type="CSP" name="toy">
+ </presentation>
+ <domains nbDomains="1">
+<domain name="Dv0" nbValues="4">
+0 1 2 3
+</domain>
+</domains>
+ <variables nbVariables="6">
+<variable name="bumpers" domain="Dv0"/>
+<variable name="top" domain="Dv0"/>
+<variable name="wheels" domain="Dv0"/>
+<variable name="body" domain="Dv0"/>
+<variable name="doors" domain="Dv0"/>
+<variable name="hood" domain="Dv0"/>
+</variables>
+
+ <relations nbRelations="2">
+
+<relation name="relPourcontrainte1" arity="2" nbTuples="6" semantics="supports">  
+ 0 1 |
+ 0 2 |
+ 0 3 |
+ 1 2 |
+ 1 3 |
+ 2 3 
+</relation>
+
+<relation name="relPourcontrainte2" arity="3" nbTuples="4" semantics="supports">  
+ 0 0 0|
+ 1 1 1|
+ 2 2 2|
+ 3 3 3 
+</relation>
+
+</relations>
+
+ <constraints nbConstraints="4">
+<constraint name="contrainte0" arity="2" reference="relPourcontrainte1" scope="bumpers body"/>
+<constraint name="contrainte1" arity="2" reference="relPourcontrainte1" scope="top body"/>
+<constraint name="contrainte2" arity="2" reference="relPourcontrainte1" scope="wheels body"/>
+<constraint name="contrainte3" arity="3" reference="relPourcontrainte2" scope="body doors hood"/>
+</constraints>
+
+</instance>
